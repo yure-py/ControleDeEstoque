@@ -5,15 +5,29 @@ public class Eletronicos extends Produto{
     int Ram;
     double Memoria;
 
-    Eletronicos(int id, String nome, String marca, String descricao, double preco,
-                int quantidade) {
+    public Eletronicos(int id,
+                       String nome,
+                       String marca,
+                       String descricao,
+                       double preco,
+                       int ram,
+                       double memoria,
+                       int quantidade) {
 
         super(id, nome, marca, descricao, preco, quantidade);
 
+        this.Ram = ram;
+        this.Memoria = memoria;
+
     }
 
-    Eletronicos(int id, String nome, String descricao, double preco,
-                int quantidade, int ram, double memoria) {
+    public Eletronicos(int id,
+                       String nome,
+                       String descricao,
+                       double preco,
+                       int ram,
+                       double memoria,
+                       int quantidade) {
 
         super(id, nome, descricao, preco, quantidade);
 
