@@ -11,7 +11,9 @@ public class Main {
     public static void main(String[] args) {
 
         Estoque teste = new Estoque();
+
         Eletronicos celular = new Eletronicos(
+
                 1001,
                 "a",
                 "q",
@@ -22,7 +24,7 @@ public class Main {
                 15
         );
 
-        teste.eletronicos.put("tipo", new ArrayList<Eletronicos>());
+        teste.eletronicos.put("tipo", new ArrayList<>());
 
         System.out.println(teste.eletronicos);
         teste.eletronicos.get("tipo").add(celular);
