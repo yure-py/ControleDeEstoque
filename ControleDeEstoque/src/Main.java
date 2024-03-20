@@ -13,9 +13,9 @@ public class Main {
     public static void teste_de_registroDeProdutos(Estoque teste){
 
         for (int id = 0; id < 10+1; id++) {
-            Eletronicos celular = new Eletronicos(id, "Nome " + id ,
-                    "Marca " + id, "Descrição " + id,
-                    (double) id*10, id, (double) id, 15
+
+            Eletronicos celular = new Eletronicos(id, "Nome " + id ,"Marca " + id, "Descrição " +
+                    id,(double) id*10, id, (double) id, 15
             );
 
             teste.registroDeProduto(Tipo.Eletronico, "celulares", celular);
@@ -26,15 +26,13 @@ public class Main {
 
         Estoque teste = new Estoque();
 
-
-        teste.eletronicos.put("celulares", new ArrayList<>());
-
-        // Instancia varias coisas
+        // Teste de registro de um novo produto
         teste_de_registroDeProdutos(teste);
 
-        // teste de adicionar x unidades ao estoque de um produto
+        // Teste de adição de estoque a um produto
         teste.adicionar_estoque("Eletronico", "celulares", 1, 15);
-        System.out.println(teste.eletronicos.get("celulares").get(1));
         assert teste.eletronicos.get("celulares").get(1).getQuantidade() == 30;
+
+        // Venda de um produto e verificação do estoque
     }
 }

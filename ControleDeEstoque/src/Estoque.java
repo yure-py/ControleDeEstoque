@@ -10,25 +10,33 @@ public class Estoque {
     public Map<String, ArrayList<Vestuario> > roupas = new TreeMap<>();
 
 
-    public <T extends Produto> void registroDeProduto(Tipo tipo, String Category,
+    public <T extends Produto> void registroDeProduto(Tipo tipo, String category,
                                                       T instancia){
 
+        if (eletronicos.isEmpty())
+            first_category_key(category, 1);
+        else if (alimentos.isEmpty())
+            first_category_key(category, 2);
+        else if (roupas.isEmpty())
+            first_category_key(category, 3);
+
+
         if (Tipo.Eletronico == tipo) {
-            eletronicos.get(Category).add((Eletronicos) instancia);
+            eletronicos.get(category).add((Eletronicos) instancia);
 
         } else if (Tipo.Alimento == tipo) {
-            alimentos.get(Category).add((Alimenticio) instancia);
+            alimentos.get(category).add((Alimenticio) instancia);
 
         } else if (Tipo.Roupa == tipo) {
-            roupas.get(Category).add((Vestuario) instancia);
+            roupas.get(category).add((Vestuario) instancia);
         }
     }
 
     private int searchForId(Tipo prod_type,
                             String category, int product_id){
         /*
-         * Pesquisa em uma categoria de produto um determinado id e retorna seu
-         * indice, -1 em caso de não encontrar
+        * Pesquisa em uma categoria de produto um determinado id e retorna seu
+        * indice, -1 em caso de não encontrar
          */
 
         if (prod_type == Tipo.Eletronico) {
@@ -53,9 +61,18 @@ public class Estoque {
         return -1;
     }
 
+    private void first_category_key(String category, int code){
+
+        switch (code){
+            case 1: eletronicos.put(category, new ArrayList<>()); break;
+            case 2: alimentos.put(category, new ArrayList<>()); break;
+            case 3: roupas.put(category, new ArrayList<>()); break;
+        }
+
+    }
+
     public void adicionar_estoque(String prod_type, String category,
                                   int product_id, int quantidade) {
-
         int idx;
         if (prod_type.equals("Eletronico")) {
 
@@ -71,7 +88,6 @@ public class Estoque {
 
             idx = searchForId(Tipo.Roupa, category, product_id);
             alimentos.get(category).get(idx).incrementar(quantidade);
-
         }
     }
 }
