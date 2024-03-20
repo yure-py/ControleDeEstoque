@@ -57,6 +57,10 @@ public abstract class Produto {
         setQuantidade(getQuantidade() + e);
     }
 
+    public void vender(int e){
+        setQuantidade(getQuantidade() - e);
+    }
+
     @Override
     public String toString() {
         return "Produto{" +

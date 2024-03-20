@@ -9,9 +9,7 @@ public class Estoque {
     public Map<String, ArrayList<Alimenticio> > alimentos = new TreeMap<>();
     public Map<String, ArrayList<Vestuario> > roupas = new TreeMap<>();
 
-
-    public <T extends Produto> void registroDeProduto(Tipo tipo, String category,
-                                                      T instancia){
+    public <T extends Produto> void registroDeProduto(Tipo tipo, String category, T instancia){
 
         if (eletronicos.isEmpty())
             first_category_key(category, 1);
@@ -19,7 +17,6 @@ public class Estoque {
             first_category_key(category, 2);
         else if (roupas.isEmpty())
             first_category_key(category, 3);
-
 
         if (Tipo.Eletronico == tipo) {
             eletronicos.get(category).add((Eletronicos) instancia);
@@ -32,8 +29,7 @@ public class Estoque {
         }
     }
 
-    private int searchForId(Tipo prod_type,
-                            String category, int product_id){
+    private int searchForId(Tipo prod_type, String category, int product_id){
         /*
         * Pesquisa em uma categoria de produto um determinado id e retorna seu
         * indice, -1 em caso de não encontrar
@@ -71,23 +67,48 @@ public class Estoque {
 
     }
 
-    public void adicionar_estoque(String prod_type, String category,
-                                  int product_id, int quantidade) {
+    public void adicionar_estoque(String prod_type, String category, int product_id, int quantidade) {
         int idx;
-        if (prod_type.equals("Eletronico")) {
 
-            idx = searchForId(Tipo.Eletronico, category, product_id);
-            eletronicos.get(category).get(idx).incrementar(quantidade);
+        switch (prod_type) {
+            case "Eletronico" -> {
 
-        } else if (prod_type.equals("Alimento")) {
+                idx = searchForId(Tipo.Eletronico, category, product_id);
+                eletronicos.get(category).get(idx).incrementar(quantidade);
+            }
+            case "Alimento" -> {
 
-            idx = searchForId(Tipo.Alimento, category, product_id);
-            roupas.get(category).get(idx).incrementar(quantidade);
+                idx = searchForId(Tipo.Alimento, category, product_id);
+                roupas.get(category).get(idx).incrementar(quantidade);
+            }
+            case "Vestuario" -> {
 
-        } else if (prod_type.equals("Vestuario")) {
+                idx = searchForId(Tipo.Roupa, category, product_id);
+                alimentos.get(category).get(idx).incrementar(quantidade);
+            }
+        }
+    }
 
-            idx = searchForId(Tipo.Roupa, category, product_id);
-            alimentos.get(category).get(idx).incrementar(quantidade);
+    public void venda(String prod_type, String category, int product_id, int quantidade){
+
+        int idx;
+
+        switch (prod_type) {
+            case "Eletronico" -> {
+
+                idx = searchForId(Tipo.Eletronico, category, product_id);
+                eletronicos.get(category).get(idx).vender(quantidade);
+            }
+            case "Alimento" -> {
+
+                idx = searchForId(Tipo.Alimento, category, product_id);
+                roupas.get(category).get(idx).vender(quantidade);
+            }
+            case "Vestuario" -> {
+
+                idx = searchForId(Tipo.Roupa, category, product_id);
+                alimentos.get(category).get(idx).vender(quantidade);
+            }
         }
     }
 }

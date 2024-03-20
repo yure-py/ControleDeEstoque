@@ -19,6 +19,7 @@ public class Main {
             );
 
             teste.registroDeProduto(Tipo.Eletronico, "celulares", celular);
+
         }
     }
 
@@ -34,5 +35,11 @@ public class Main {
         assert teste.eletronicos.get("celulares").get(1).getQuantidade() == 30;
 
         // Venda de um produto e verificação do estoque
+        teste.venda("Eletronico", "celulares", 1, 15);
+        assert teste.eletronicos.get("celulares").get(1).getQuantidade() == 15;
+
+        for (Eletronicos x: teste.eletronicos.get("celulares")){
+            System.out.println(x);
+        }
     }
 }
