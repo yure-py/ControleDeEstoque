@@ -19,9 +19,6 @@ public class Main {
             );
 
             teste.registroDeProduto(Tipo.Eletronico, "celulares", celular);
-
-            //teste.eletronicos.get("celulares").add(celular);
-            System.out.println(teste.eletronicos.get("celulares").get(id));
         }
     }
 
@@ -35,6 +32,9 @@ public class Main {
         // Instancia varias coisas
         teste_de_registroDeProdutos(teste);
 
-
+        // teste de adicionar x unidades ao estoque de um produto
+        teste.adicionar_estoque("Eletronico", "celulares", 1, 15);
+        System.out.println(teste.eletronicos.get("celulares").get(1));
+        assert teste.eletronicos.get("celulares").get(1).getQuantidade() == 30;
     }
 }

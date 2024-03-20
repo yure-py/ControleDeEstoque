@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43d45d4d-0e46-4c85-b39f-1145752dac2a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ControleDeEstoque/src/Estoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControleDeEstoque/src/Estoque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ControleDeEstoque/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControleDeEstoque/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gitEstoque.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gitEstoque.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gitEstoque/Estoque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitEstoque/Estoque.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gitEstoque/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/gitEstoque/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
