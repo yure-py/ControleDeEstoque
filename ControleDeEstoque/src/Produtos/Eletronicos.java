@@ -34,5 +34,13 @@ public class Eletronicos extends Produto{
         this.Ram = ram;
         this.Memoria = memoria;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString() +
+                ", Ram = " + Ram +
+                ", Memoria = " + Memoria +
+                '}';
+    }
 }
 

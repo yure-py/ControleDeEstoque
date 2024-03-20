@@ -1,5 +1,7 @@
 package Produtos;
 
+import java.util.Objects;
+
 public abstract class Produto {
     private int Id, Quantidade;
     private String Nome, Marca, Descricao;
@@ -41,7 +43,7 @@ public abstract class Produto {
     public void setId(int id) {
         Id = id;
     }
-    public void setQuantidade(int quantidade) {
+    private void setQuantidade(int quantidade) {
         Quantidade = quantidade;
     }
     public void setNome(String nome) {
@@ -51,4 +53,16 @@ public abstract class Produto {
         Preco = preco;
     }
 
+    public void incrementar(int e){
+        setQuantidade(getQuantidade() + e);
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "Id = " + Id +
+                ", Quantidade = " + Quantidade +
+                ", Nome = '" + Nome + '\'' +
+                ", Preco = " + Preco;
+    }
 }
